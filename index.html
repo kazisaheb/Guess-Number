@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guess Number</title>
+  <style>
+    * {
+      font-family: cursive;
+      color: gray;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 10px;
+    }
+
+    h2 {
+      display: none;
+      font-size: 40px;
+      color: tomato;
+    }
+
+  </style>
+</head>
+
+<body>
+  <main>
+    <h1>Guess 1 to 10</h1>
+    <h2 id="success">Success</h2>
+    <h1>It's mind: <span id="mind"></span></h1>
+    <h1>Your mind: <span id="myMind"></span></h1>
+    <input id="guess" type="number" placeholder="Your number">
+    <h2 id="failed">Try Again</h2>
+    <button onclick="btn()">Enter</button>
+  </main>
+
+  <script>
+    mind = document.getElementById('mind')
+    myMind = document.getElementById('myMind')
+    guess = document.getElementById('guess')
+    success = document.getElementById('success')
+    failed = document.getElementById('failed')
+    btn = () => {
+      if (guess.value !== '') {
+
+
+        success.style.display = 'none'
+        failed.style.display = 'none'
+        random = Math.floor((Math.random() * 10) + 1);
+        console.log(random);
+        mind.innerText = random
+        myMind.innerText = guess.value
+        if (guess.value == mind.innerText) {
+          success.style.display = 'block'
+        } else {
+          failed.style.display = 'block'
+        }
+      }
+      guess.value = ''
+    }
+  </script>
+</body>
+
+</html>
