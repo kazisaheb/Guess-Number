@@ -16,17 +16,26 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      row-gap: 10px;
+      row-gap: 15px;
     }
 
     h2 {
       display: none;
       font-size: 40px;
       color: tomato;
+      margin: 0;
     }
 
     span {
       color: tomato;
+    }
+
+    button {
+      background: tomato;
+      color: white;
+      padding: 5px 20px;
+      font-size: 15px;
+      cursor: pointer;
     }
 
   </style>
@@ -66,6 +75,7 @@
       }
       guess.value = ''
     }
+    guess.focus()
   </script>
 </body>
 
