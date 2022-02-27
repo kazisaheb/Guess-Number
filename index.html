@@ -34,7 +34,7 @@
 
 <body>
   <main>
-    <h1>Guess 0 to 9</h1>
+    <h1>Guess <span>0</span> to <span>9</span></h1>
     <h2 id="success">Success</h2>
     <h1>It's mind: <span id="mind"></span></h1>
     <h1>Your mind: <span id="myMind"></span></h1>
@@ -50,8 +50,6 @@
     success = document.getElementById('success')
     failed = document.getElementById('failed')
     btn = () => {
-      success.style.display = 'none'
-      failed.style.display = 'none'
       if (guess.value !== '') {
         random = Math.floor(Math.random() * 10);
         console.log(random);
@@ -59,8 +57,10 @@
         myMind.innerText = guess.value
         if (guess.value == mind.innerText) {
           success.style.display = 'block'
+          failed.style.display = 'none'
         } else {
           failed.style.display = 'block'
+          success.style.display = 'none'
           guess.focus()
         }
       }
